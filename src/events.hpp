@@ -1,5 +1,5 @@
-#ifndef COMBINATORICS_H
-#define COMBINATORICS_H
+#ifndef EVENTS_HPP
+#define EVENTS_HPP
 
 #include <vector>
 
@@ -36,4 +36,4 @@ class EventStack
 	std::vector<EventsGroup>
 };
 
-#endif // COMBINATORICS_H
+#endif // !EVENTS_HPP
