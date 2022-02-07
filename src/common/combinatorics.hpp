@@ -68,7 +68,7 @@ namespace ptxx {
 		typedef double rf;
 
 		template<class NumericType>
-		auto constexpr allPermutations(NumericType &count)
+		decltype(auto) constexpr allPermutations(NumericType &count)
 		{
 			return common::factorial(count);
 		}
