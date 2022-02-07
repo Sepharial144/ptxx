@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{5904f24f-c37b-4889-b6b7-a1c9f3c2cc07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\common">
+      <UniqueIdentifier>{41cab07d-2884-43d2-8324-cf38a7d84a58}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\common\combinatorics.hpp">
+      <Filter>src\common</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ptxx.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\events.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
