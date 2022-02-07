@@ -3,4 +3,4 @@
 
 #include "common/combinatorics.hpp"
 
-#endif // PTXX_HPP
+#endif // !PTXX_HPP
