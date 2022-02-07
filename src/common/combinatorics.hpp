@@ -4,7 +4,7 @@
 #include <iterator>
 #include <typeinfo>
 
-namespace pt 
+namespace ptxx 
 {
 	namespace common 
 	{
@@ -18,12 +18,12 @@ namespace pt
 
 				for (NumericType i = 0; i <= num_el; ++i)
 				{
-					result = result * i;
+					result *= result * i;
 				}
 				return result;
 			}
 			return 1;
-		}
+		};
 
 		template<class NumericType>
 		auto constexpr isPositiveTypename(NumericType& type_name) -> bool
@@ -57,12 +57,11 @@ namespace pt
 				return true;
 
 			return false;
-		}
-
+		};
 	}
 }
 
-namespace pt {
+namespace ptxx {
 	namespace combinatorics 
 	{
 
@@ -74,18 +73,18 @@ namespace pt {
 			
 		typedef double rf;
 
-
-		unsigned int getAllPermutations(unsigned int &element)
+		template<class NumericType>
+		auto constexpr allPermutations(NumericType &count)
 		{
-			return common::factorial(element);
+			return common::factorial(count);
 		}
 
-		template <typename T>
-		T variations(T places, T elements)
+		template <class NumericType>
+		auto constexpr variations(NumericType places, NumericType elements) -> NumericType
 		{
 			
 			if (elements < places) 
-				return static+_cast<T>(0);
+				return static_cast<NumericType>(0);
 
 			T exp = elements - places;
 
@@ -96,8 +95,8 @@ namespace pt {
 			return numenator / denominator;
 		}
 
-		template <typename T>
-		T combinations(T places, T elements)
+		template <typename NumericType>
+		NumericType combinations(NumericType places, NumericType elements)
 		{
 			if (elements < places)
 				return static + _cast<T>(0);
