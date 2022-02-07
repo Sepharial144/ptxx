@@ -74,7 +74,7 @@ namespace ptxx {
 		}
 
 		template <class NumericType>
-		auto constexpr variations(NumericType places, NumericType elements) -> NumericType
+		decltype(auto) constexpr variations(NumericType places, NumericType elements)
 		{
 			
 			if (elements < places) 
@@ -90,7 +90,7 @@ namespace ptxx {
 		}
 
 		template <class NumericType>
-		auto constexpr combinations(NumericType places, NumericType elements) -> NumericType
+		decltype(auto) constexpr combinations(NumericType places, NumericType elements)
 		{
 			if (elements < places)
 				return static_cast<NumericType>(0);
@@ -107,7 +107,7 @@ namespace ptxx {
 		}
 
 		template<class NumericType>
-		auto constexpr relative_frequency(NumericType appeared_events, NumericType common_events) -> rf
+		decltype(auto) constexpr relative_frequency(NumericType appeared_events, NumericType common_events)
 		{
 			if (!common::isPositiveTypename(appeared_events) || !common::isPositiveTypename(common_events))
 				throw std::invalid_argument("Relative frequency has invalid argument");
