@@ -89,7 +89,7 @@ namespace ptxx {
 			return numenator / denominator;
 		}
 
-		template <typename NumericType>
+		template <class NumericType>
 		auto constexpr combinations(NumericType places, NumericType elements) -> NumericType
 		{
 			if (elements < places)
@@ -99,14 +99,14 @@ namespace ptxx {
 
 			NumericType exp = elements - places;
 
-			NumericType pls_factorial = common::factorial(places);
+			NumericType fact_places = common::factorial(places);
 
-			NumericType denominator = common::factorial(exp) * pls_factorial;
+			NumericType denominator = common::factorial(exp) * fact_places;
 
 			return numenator / denominator;
 		}
 
-		template<typename NumericType>
+		template<class NumericType>
 		auto constexpr relative_frequency(NumericType appeared_events, NumericType common_events) -> rf
 		{
 			if (!common::isPositiveTypename(appeared_events) || !common::isPositiveTypename(common_events))
