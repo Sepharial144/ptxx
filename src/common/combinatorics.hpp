@@ -1,5 +1,5 @@
-#ifndef COMBINATORICS_H
-#define COMBINATORICS_H
+#ifndef COMBINATORICS_HPP
+#define COMBINATORICS_HPP
 
 #include <iterator>
 #include <typeinfo>
@@ -97,4 +97,4 @@ namespace pt {
 	}
 }
 
-#endif // COMBINATORICS_H
+#endif // !COMBINATORICS_HPP
