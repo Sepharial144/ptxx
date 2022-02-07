@@ -12,7 +12,7 @@ namespace ptxx
 		auto constexpr factorial(NumericType& num_el) -> std::uint64_t
 		{
 
-			if (true == isPositiveTypename(num_el) && num_el != 0)
+			if (isPositiveTypename(num_el) && num_el != 0)
 			{
 				std::uint64_t result = 1;
 
@@ -99,22 +99,25 @@ namespace ptxx {
 		NumericType combinations(NumericType places, NumericType elements)
 		{
 			if (elements < places)
-				return static + _cast<T>(0);
+				return static_cast<NumericType>(0);
 
-			T numenator = common::factorial(elements);
+			NumericType numenator = common::factorial(elements);
 
-			T exp = elements - places;
+			NumericType exp = elements - places;
 
-			T pls_factorial = common::factorial(places);
+			NumericType pls_factorial = common::factorial(places);
 
-			T denominator = common::factorial(exp) * pls_factorial;
+			NumericType denominator = common::factorial(exp) * pls_factorial;
 
 			return numenator / denominator;
 		}
 
-		template<typename T>
-		rf relative_frequency(T appeared_events, T common_events)
+		template<typename NumericType>
+		rf relative_frequency(NumericType appeared_events, NumericType common_events)
 		{
+			if (!isPositiveTypename(appeared_events) || !isPositiveTypename(common_events))
+				throw std::invalid_argument("Relative frequency has invalid argument");
+
 			return static_cast<rf>(appeared_events) / static_cast<rf>(common_events);
 		}
 
