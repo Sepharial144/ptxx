@@ -65,12 +65,6 @@ namespace ptxx {
 	namespace combinatorics 
 	{
 
-		struct Al_description
-		{
-			int time;
-			int counts;
-		};
-			
 		typedef double rf;
 
 		template<class NumericType>
@@ -86,17 +80,17 @@ namespace ptxx {
 			if (elements < places) 
 				return static_cast<NumericType>(0);
 
-			T exp = elements - places;
+			NumericType exp = elements - places;
 
-			T numenator = common::factorial(elements);
+			NumericType numenator = common::factorial(elements);
 
-			T denominator = common::factorial(exp);
+			NumericType denominator = common::factorial(exp);
 
 			return numenator / denominator;
 		}
 
 		template <typename NumericType>
-		NumericType combinations(NumericType places, NumericType elements)
+		auto constexpr combinations(NumericType places, NumericType elements) -> NumericType
 		{
 			if (elements < places)
 				return static_cast<NumericType>(0);
@@ -113,12 +107,17 @@ namespace ptxx {
 		}
 
 		template<typename NumericType>
-		rf relative_frequency(NumericType appeared_events, NumericType common_events)
+		auto constexpr relative_frequency(NumericType appeared_events, NumericType common_events) -> rf
 		{
-			if (!isPositiveTypename(appeared_events) || !isPositiveTypename(common_events))
+			if (!common::isPositiveTypename(appeared_events) || !common::isPositiveTypename(common_events))
 				throw std::invalid_argument("Relative frequency has invalid argument");
 
-			return static_cast<rf>(appeared_events) / static_cast<rf>(common_events);
+			rf result = static_cast<rf>(appeared_events) / static_cast<rf>(common_events);
+
+			if (result > 1)
+				throw std::bad_exception("Relative frequency more than 1");
+
+			return result;
 		}
 
 		
