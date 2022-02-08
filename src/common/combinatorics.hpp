@@ -67,12 +67,16 @@ namespace ptxx {
 
 		typedef double rf;
 
+		// Based on n! formula
+
 		template<class NumericType>
 		decltype(auto) constexpr allPermutations(NumericType &count)
 		{
 			return common::factorial(count);
 		}
 
+		// Based on formula
+		// A m,n = n! / (n - m)!
 		template <class NumericType>
 		decltype(auto) constexpr variations(NumericType places, NumericType elements)
 		{
@@ -89,6 +93,9 @@ namespace ptxx {
 			return numenator / denominator;
 		}
 
+
+		// Based on formula
+		// C m,n =  n! / ((n-m)! * m!)
 		template <class NumericType>
 		decltype(auto) constexpr combinations(NumericType places, NumericType elements)
 		{
@@ -119,8 +126,6 @@ namespace ptxx {
 
 			return result;
 		}
-
-		
 	}
 }
 
