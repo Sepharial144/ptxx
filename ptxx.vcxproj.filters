@@ -7,7 +7,7 @@
     <Filter Include="src\common">
       <UniqueIdentifier>{41cab07d-2884-43d2-8324-cf38a7d84a58}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\events">
+    <Filter Include="src\common\events">
       <UniqueIdentifier>{46104234-ac95-4d5c-8aea-33a3eabbd0aa}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -22,7 +22,10 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\events\events.hpp">
-      <Filter>src\events</Filter>
+      <Filter>src\common\events</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="CMakeLists.txt" />
   </ItemGroup>
 </Project>

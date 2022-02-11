@@ -26,6 +26,9 @@
     <ClInclude Include="src\events\events.hpp" />
     <ClInclude Include="src\ptxx.hpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="CMakeLists.txt" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{6F8060FE-8B17-4415-AE40-445256A8801F}</ProjectGuid>
