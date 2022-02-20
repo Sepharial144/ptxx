@@ -2,7 +2,7 @@
 #define COMBINATORICS_HPP
 
 #include <iterator>
-#include <typeinfo>
+#include <type_traits>
 
 namespace ptxx 
 {
@@ -25,39 +25,40 @@ namespace ptxx
 			return 1;
 		};
 
-		template<class NumericType>
+		/*template<class NumericType>
 		auto constexpr isPositiveTypename(NumericType& type_name) -> bool
 		{
+			return
+				std::is_same<T, unsigned int>::value   ||
+				std::is_same<T, uint8_t>::value        ||
+				std::is_same<T, uint16_t>::value       ||
+				std::is_same<T, uint32_t>::value       ||
+				std::is_same<T, uint64_t>::value       ||
+				std::is_same<T, uint_fast8_t>::value   ||
+				std::is_same<T, uint_fast16_t>::value  ||
+				std::is_same<T, uint_fast32_t>::value  ||
+				std::is_same<T, uint_fast64_t>::value  ||
+				std::is_same<T, uint_least8_t>::value  ||
+				std::is_same<T, uint_least16_t>::value ||
+				std::is_same<T, uint_least32_t>::value ||
+				std::is_same<T, uint_least64_t>::value;
+		};*/
 
-			if (std::is_same<type_name, unsigned int>)
-				return true;
-			if (std::is_same<type_name, uint8_t>)
-				return true;
-			if (std::is_same<type_name, uint16_t>)
-				return true;
-			if (std::is_same<type_name, uint32_t>)
-				return true;
-			if (std::is_same<type_name, uint64_t>)
-				return true;
-			if (std::is_same<type_name, uint_fast8_t>)
-				return true;
-			if (std::is_same<type_name, uint_fast16_t>)
-				return true;
-			if (std::is_same<type_name, uint_fast32_t>)
-				return true;
-			if (std::is_same<type_name, uint_fast64_t>)
-				return true;
-			if (std::is_same<type_name, uint_least8_t>)
-				return true;
-			if (std::is_same<type_name, uint_least16_t>)
-				return true;
-			if (std::is_same<type_name, uint_least32_t>)
-				return true;
-			if (std::is_same<type_name, uint_least64_t>)
-				return true;
-
-			return false;
-		};
+		template<typename T>
+		constexpr bool isPositiveTypename =
+			std::is_same<T, unsigned int>::value ||
+			std::is_same<T, uint8_t>::value ||
+			std::is_same<T, uint16_t>::value ||
+			std::is_same<T, uint32_t>::value ||
+			std::is_same<T, uint64_t>::value ||
+			std::is_same<T, uint_fast8_t>::value ||
+			std::is_same<T, uint_fast16_t>::value ||
+			std::is_same<T, uint_fast32_t>::value ||
+			std::is_same<T, uint_fast64_t>::value ||
+			std::is_same<T, uint_least8_t>::value ||
+			std::is_same<T, uint_least16_t>::value ||
+			std::is_same<T, uint_least32_t>::value ||
+			std::is_same<T, uint_least64_t>::value;
 	}
 }
 
@@ -113,11 +114,11 @@ namespace ptxx {
 			return numenator / denominator;
 		}
 
-		template<class NumericType>
+		template<class NumericType, class = std::enable_if_t<common::isPositiveTypename<NumericType>>>
 		decltype(auto) constexpr relative_frequency(NumericType appeared_events, NumericType common_events)
 		{
-			if (!common::isPositiveTypename(appeared_events) || !common::isPositiveTypename(common_events))
-				throw std::invalid_argument("Relative frequency has invalid argument");
+			//if (!common::isPositiveTypename(appeared_events) || !common::isPositiveTypename(common_events))
+			//	throw std::invalid_argument("Relative frequency has invalid argument");
 
 			rf result = static_cast<rf>(appeared_events) / static_cast<rf>(common_events);
 

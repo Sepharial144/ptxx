@@ -5,4 +5,6 @@ project(ptxx VERSION 0.12)
 set(CMAKE_CXX_STANDART 17)
 set(CMAKE_CXX_STANDART_REQUIRED True)
 
-add_executable(${PROJECT_NAME} main.cpp)
+add_subdirectory(/src)
+
+add_executable(${PROJECT_NAME}/src/main.cpp)
