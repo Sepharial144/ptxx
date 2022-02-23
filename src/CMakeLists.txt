@@ -1,3 +1,7 @@
+
+set(CMAKE_CXX_STANDART 17)
+set(CMAKE_CXX_STANDART_REQUIRED ON)
+
 add_library(
 	${PROJECT_NAME}
 	ptxx.hpp
