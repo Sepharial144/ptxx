@@ -7,9 +7,12 @@ project(
 )
 
 set(CMAKE_CXX_STANDART 17)
-set(CMAKE_CXX_STANDART_REQUIRED True)
+set(CMAKE_CXX_STANDART_REQUIRED ON)
+
+enable_testing()
 
 add_subdirectory(src)
-add_subdirectory(tests)
 
-add_executable(${PROJECT_NAME} main.cpp)
+if(testing_enabled)
+    add_subdirectory(tests)
+endif()
