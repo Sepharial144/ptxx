@@ -5,8 +5,8 @@ struct Scheme
 {
 	std::vector<std::vector<int>> _sc;
 	std::vector<int> _sc_filter;
-	unsigned long long _scsize{}; // it is for filter what is 
-	int _sc_max{};
+	unsigned int _scsize{}; // it is for filter what is 
+	int _sc_max_size{};
 
 	Scheme() {};
 
@@ -16,7 +16,7 @@ struct Scheme
 
 		sizeScheme(data_size);
 
-		_sc_max = data_size;
+		_sc_max_size = data_size;
 		_sc.reserve(_scsize);
 		_sc_filter.reserve(_scsize);
 
@@ -34,7 +34,6 @@ struct Scheme
 
 	void backtrackIndices(int idx, int& data_size, std::vector<int>& temp)
 	{
-
 		std::sort(temp.begin(), temp.end()); // need refactoring
 
 		if (idx == data_size)
